@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--Meta Tags for SEO-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Meta name="description" content="Experience ultamate relaxation at Lumi Beauty Spa.Fro rejuvenating facials to body treatments,our expert team is dedicated to your glow.Book today!">
+    <meta name="keywords" content="spa, beauty, relaxation, facials, body treatments">
+    <meta name="author" content="Zukhanye Ntlama">
+  <title>Book Now</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <main>
+    <section>
+      <h1 id="mylogo">Lumi</h1>
+      <center>
+        <header>
+             <nav class="nav-links"> <center>
+    <a href="../index.html">Home</a>
+<a href="./about us.html">About Us</a>
+<a href="./services.html">Services</a>
+<a href="./Book Now.html">Book Now</a>
+<a href="./contact.html">Contact</a>
+<a href="./Pay Now.html">Pay Now</a></center>
+</nav>
+           <!--Add a hamburger navigation  for small devices responsivesness-->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+    </div>
+        </header>
+      </center>
+      <hr>
+      <br>
+      <center>
+        <h1><b>Book Your Appointment</b></h1>
+        <form class="forms-container"  id="form1">
+          <label for="first-name" id="form2">First Name:</label>
+          <input type="text" id="first-name" name="first-name" placeholder="Zukhanye" required>
+
+          <label for="last-name" id="form2">Last Name:</label>
+          <input type="text" id="last-name" name="last-name" placeholder="Ntlama" required>
+
+          <label for="email"id="form2">Email:</label>
+          <input type="email" id="email" name="email" placeholder="ZukhanyeNtlama@gmail.com" required>
+
+          <label for="phone" id="form2">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" placeholder="072 914 9706" required>
+
+          <label for="service" id="form2" >Select Service:</label>
+          <select id="service" name="service" required>
+            <option value="">--select service--</option>
+            <option value="Signature Cut & Style">Signature Cut & Style - R775</option>
+            <option value="Color Treatment">Color Treatment - R1,100</option>
+            <option value="Highlights">Highlights (Full) - R1,375</option>
+            <option value="Keratin Treatment">Keratin Treatment - R1,825</option>
+            <option value="Balayage">Balayage - R1,650</option>
+            <option value="Sew-In Weave">Sew-In Weave Installation - R2,250</option>
+            <option value="Clip-in Extensions">Clip-in Extensions - R1,400</option>
+            <option value="Tape-In Extensions">Tape-In Extensions - R1,600</option>
+            <option value="Micro-link Extensions">Micro-link Extensions - R1,900</option>
+            <option value="Virgin Brazilian Hair">Virgin Brazilian Hair (per bundle) - R600</option>
+            <option value="Classic Manicure">Classic Manicure - R250</option>
+            <option value="Gel Manicure">Gel Manicure - R350</option>
+            <option value="Nail Art">Nail Art (per nail) - R75</option>
+            <option value="French Manicure">French Manicure - R365</option>
+            <option value="Signature Facial">Signature Facial - R825</option>
+            <option value="Anti-Aging Treatment">Anti-Aging Treatment - R1,100</option>
+            <option value="Deep Cleansing Facial">Deep Cleansing Facial - R600</option>
+            <option value="Relaxation Massage">Relaxation Massage (60min) - R1,000</option>
+            <option value="Hot Stone Therapy">Hot Stone Therapy - R1,190</option>
+          </select>
+
+          <label for="date" id="form2">Select Date:</label>
+          <input type="date" id="date" name="date" required>
+          <label for="time" id="form2">Select Time:</label>
+          <input type="time" id="time" name="time" required>
+
+          <p><b>Amount due: R0.00</b></p>
+          <button><a href="Pay Now.html" id="pay-now-button">Book Now </a></button>
+           </form>
+
+          <!--Show/Hide Content (Toggle Feature)-->
+<p id="message">This is a toggle message.</p>
+<button onclick="toggleMessage()">Show/Hide</button>
+        <br/>
+
+<!--Simple Form Validation-->
+
+<input type="text" id="name" placeholder="Enter your name">
+<button onclick="validateForm()">Submit</button>
+<p id="error"></p>
+         
+       
+      </center>
+    </section>
+  </main>
+  <hr>
+  <center>
+    <footer><p id="footer"  >&COPY;2026 Lumi Beauty Spa. All rights reserved</p></footer>
+  </center>
+  <script>
+            //Activate Hamburger Navigation
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active'); // animate hamburger
+            });
+
+            //Form Input validation
+            const form = document.getElementById('enquiryForm');
+            const successMsg = document.getElementById('successMessage');
+
+            form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual submission
+
+            // Simple form validation
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const message = form.message.value.trim();
+            const type = form.querySelector('input[name="type"]:checked');
+
+            if (!type) {
+                alert("Please select an enquiry type.");
+                return;
+            }
+            if (!name || !email || !message) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            // Show success message and clear form
+            successMsg.style.display = 'block';
+            form.reset();
+            });
+
+            //Inserting TimeStamp (Dynamic content)
+            function displayTime() {
+                const now = new Date();
+                let hours = now.getHours();
+                let minutes = now.getMinutes();
+                let seconds = now.getSeconds();
+
+                // Add leading zeroes for single-digit minutes and seconds
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                const currentTime = hours + ":" + minutes + ":" + seconds;
+                document.getElementById("time").textContent = currentTime;
+            }
+
+            // Call the displayTime function every second to update the time
+            setInterval(displayTime, 1000);
+
+            // Display the time immediately when the page loads
+            displayTime();
+            //Show/Hide Toggle
+            function validetionForm(){
+              let name=document.getElementById("name").value;
+              if(name===""){
+                document.getElementById("error").innerText="Name is required!";
+              }
+              else{document.getElementById("error").innerText="Form submitted successfully!";
+
+              }
+            }
+        </script>
+    
+</body>
+</html>
